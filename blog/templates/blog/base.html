@@ -1,0 +1,116 @@
+{% load staticfiles %}
+<!-- 10) -->
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dave's first blog with Django">
+  <meta name="author" content="DaeyeonJo">
+  <link rel="short icon" type="image/x-icon" href="{% static 'blog/favicon.ico' %}"/>
+  
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'blog/css/jumbotron.css' %}" >
+  <link rel="stylesheet" href="{% static 'blog/css/modal_image.css' %}" >
+  
+  
+  <!--
+  [ 구글폰트 사용하기 ]
+  @ https://developers.google.com/fonts/docs/getting_started
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=neon">
+  <div class="font-effect-neon"><h1 style="margin-top: 10px; color: white; margin-left: 10px; font-size: 100px; font-family: 'Rancho';">KING SD님의 블로그</h1></div>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">  <!-- 한나체 -->
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> <!-- 스포카 한 산스 (구글 & 어도비) --> 
+  
+  <style>
+    .btn-warning {
+      border-color: black; 
+    }
+    .well-glyp {
+      color: black;
+    }
+    .well{
+      background-color: whitesmoke;
+    }
+    .well:hover{
+      background-color: black;
+      color: white;
+    }
+    .btn-register:hover {
+      color: #f0ad4e;  
+    }
+    .thumbnail {
+      padding: 3px;
+      background-color: black;
+      border: none;
+    }
+    .thumbnail:hover {
+      background-color: white; 
+    }
+    
+  </style>
+  
+
+</head>
+<body style="background-color: black; font-family:'Hanna', serif; ">
+<!-- <body style="background-color: black; font-family:'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' "> -->
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="{% static 'blog/js/modal_image.js' %}"></script>
+  
+  
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">Venus & Goddess</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+              <b>
+                  <a class="btn btn-warning btn-lg" href="#" role="button"style="font-weight: 100; background-color:black; color:white; padding: 6px 13px;">
+                  포토그래퍼 둘러보기 &raquo;
+                  </a>
+              </b>
+          </form>
+          <!--<form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>-->
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!--<div class="page-header" style="background-color: #42a6b4;">-->
+    <!--  <a style="text-decoration: none;" href="{% url 'index' %}">-->
+    <!--    <h1 style="margin-top: 5px; color: white; margin-left: 10px; font-size: 50px;">Dave's blog<small>테스트메시지</small></h1>-->
+    <!--  </a>-->
+    <!--</div>-->
+
+
+    {% block content %}{% endblock %}
+
+
+</body>
+</html>
+
+
+
+<!-- 11) register model at admin.py -->
