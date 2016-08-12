@@ -62,7 +62,6 @@ def edit(request, pk):
         return render(request, 'blog/post_edit.html', context)
         
         
-        
 def reply_write(request):
     
     comment = Comment() # Comment() 객체 생성 

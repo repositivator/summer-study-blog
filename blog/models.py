@@ -47,11 +47,11 @@ class Post(models.Model):
 class Comment(models.Model):
 
     post = models.ForeignKey('blog.Post', related_name='comments')
-    # post 변수에는 comment(N)들이 연결된 post(1)의 id 값이 저장된다 (commment 자체의 id 는 자체적으로 생성됨)
-    # 1-1) related_name은 1:N의 관계에서 1의 모델이 N의 모델을 부를때 사용할 attribute ("post.commments.all")
+    # Comment 클래스의 post 변수에는 comment(N)들이 연결된 post(1)의 id 값이 저장된다 (commment 자체의 id 는 자체적으로 생성됨)
+    # 1-1) related_name은 1:N의 관계에서 1의 모델이(을 통해) N의 모델을 부를때 사용할 attribute ("post.commments.all")
     # 1-2) related_name : Post 의 comment 들을 불러내는 이름 
-    # 1-3) -> posts = Post.objects.all() 로 전체 posts 들만 넘겨받은 template(index.html) 에서 "post.comments.all" 로 불러낼 수 있게 된다 
-    # 2) blog.Post : 앱 이름을 함께 적어줘야 한다 (나중에 많이 연결될 수 있으므로)
+    # 1-3) -> posts = Post.objects.all() 을 통해 전체 posts 들만 넘겨받았던 template(index.html) 에서 for 문 내의 "post.comments.all" 로 댓글들을 불러낼 수 있게 된다 
+    # 2) blog.Post : 앱 이름을 함께 적어줘야 한다 (나중에 Post가 여러개 있을 수 있으므로)
          
     author = models.ForeignKey('auth.User')
     text = models.TextField()
